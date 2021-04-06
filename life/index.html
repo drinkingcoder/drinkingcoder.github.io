@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LIFE: Lighting Invariant Flow Estimation</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  </head>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2>LIFE: Lighting Invariant Flow Estimation</h2>
+            <!-- <h4 style="color:#5a6268;">CVPR 2021</h4> -->
+            <hr>
+            <h6> <a href="https://drinkingcoder.github.io/" target="_blank">Zhaoyang Huang</a><sup>2*</sup>, 
+                Xiaokun Pan<sup>1*</sup>, Runsen Xu<sup>1</sup>, Yan Xu<sup>2</sup>, 
+                <!-- <a href="https://justimyhxu.github.io/academic.html" target="_blank">Yinghao Xu</a><sup>2</sup>, 
+                <a href="http://www.cs.cornell.edu/~qqw/" target="_blank">Qianqian Wang</a><sup>3</sup>,
+                Qing Shuai<sup>1</sup>, -->
+                <br>
+                <a href="http://www.cad.zju.edu.cn/home/gfzhang/" target="_blank">Guofeng Zhang</a><sup>1</sup>,
+                <a href="https://www.ee.cuhk.edu.hk/~hsli/" target="_blank">Hongsheng Li</a><sup>2, 3</sup></h6>
+            <p><sup>1</sup>State Key Lab of CAD & CG, Zhejiang University &nbsp;&nbsp;  <br>
+                <sup>2</sup>CUHK-SenseTime Joint Laboratory, The Chinese University of Hong Kong &nbsp;&nbsp; <br>
+                <sup>3</sup> School of CST, Xidian University &nbsp;&nbsp;
+                <br>
+                <sup>*</sup> denotes equal contribution
+                </p>
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/" role="button"  target="_blank">
+                    <i class="fa fa-file"></i> Paper</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/drinkingcoder" role="button"  target="_blank">
+                    <i class="fa fa-github-alt"></i> Code</a> </p>
+              </div>
+              <!-- <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://zjueducn-my.sharepoint.com/:f:/g/personal/pengsida_zju_edu_cn/Eo9zn4x_xcZKmYHZNjzel7gBdWf_d4m-pISHhPWB-GZBYw?e=Hf4mz7" role="button">
+                    <i class="fa fa-database"></i> Data</a> </p>
+              </div> -->
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+            <!-- <video width="70%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted=""> -->
+                  <!-- <source src="images/monocular.m4v" type="video/mp4"> -->
+              <!-- </video> -->
+              <!-- <br><br> -->
+                <img class="img-fluid" src="images/teasor.png" alt="teasor">
+          <p class="text-justify">We tackle the problem of estimating flow between two images with large lighting variations.
+            Recent learning-based flow estimation frameworks have shown remarkable performance on image pairs with small displacement and constant illuminations, but cannot work well on cases with large viewpoint change and lighting variations because of the lack of pixel-wise flow annotations for such cases.
+            We observe that via the Structure-from-Motion (SfM) techniques, one can easily estimate relative camera poses between image pairs with large viewpoint change and lighting variations.
+            We propose a novel weakly supervised framework LIFE to train a neural network for estimating accurate lighting-invariant flows between image pairs.
+            Sparse correspondences are conventionally established via feature matching with descriptors encoding local image contents.
+            However, local image contents are inevitably ambiguous and error-prone during the cross-image feature matching process, which hinders downstream tasks.
+            We propose to guide feature matching with the flows predicted by LIFE, which addresses the ambiguous matching by utilizing abundant context information in the image pairs. 
+            We show that LIFE outperforms previous flow learning frameworks by large margins in challenging scenarios, consistently improves feature matching, and benefits downstream tasks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Replacing the picture in videos via predicted flows</h3>
+            <hr style="margin-top:0px">
+          <p class="text-justify">
+            We select the painting The Starry Night and print it on an A4 paper.
+We record videos that capture the paper in different situations and extract frames from them.
+Then we use LIFE to individually predict flows from the painting to the frames and warp other images to the frames via the flows.
+Note that the image is warped via flows only and we do not use any other strategies.
+The excellent visual effect of the video synthesized via LIFE demonstrates the high robustness and accuracy of LIFE,
+which also reveals potential augmented reality~(AR) applications according to LIFE.
+          </p>
+          <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Captured videos</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/intro.mp4" type="video/mp4">
+            </video>
+            <div><b style="color:#fd5638; font-size:large" id="demo-warning"></b>
+          <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Motion Blur</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/motionblur.mp4" type="video/mp4">
+            </video>
+          <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Viewpoint variation</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/viewpoint.mp4" type="video/mp4">
+            </video>
+          <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Lighting variation</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/lighting.mp4" type="video/mp4">
+            </video>
+          <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Surface variation</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/surface.mp4" type="video/mp4">
+            </video>
+          <h4 style="margin-top:20px; margin-bottom:20px; color:#fd5638">Demo</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/demo.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Feature matching with and without flow guidance</h3>
+            <hr style="margin-top:0px">
+                <img class="img-fluid" src="images/FeatureMatching.png" alt="FeatureMatching Comparison">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Flow comparison on the KITTI</h3>
+            <hr style="margin-top:0px">
+                <img class="img-fluid" src="images/KITTI.png" alt="KITTI Comparison">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Image warping via predicted flows</h3>
+            <hr style="margin-top:0px">
+                <img class="img-fluid" src="images/ImageWarping.png" alt="warping Comparison">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  <!-- h36m results -->
+  <!-- <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Results on Human3.6M dataset</h3>
+            <hr style="margin-top:0px">
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="images/h36m-1.m4v" type="video/mp4">
+            </video>
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="images/h36m-2.m4v" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br> -->
+
+  <!-- multiview results -->
+  <!-- <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Comparison with state-of-the-art methods on sparse multi-view videos</h3>
+            <hr style="margin-top:0px">
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Novel view synthesis of dynamic human</h4>
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="images/4-view-video-1.m4v" type="video/mp4">
+            </video>
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="images/4-view-video-2.m4v" type="video/mp4">
+            </video>
+
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Novel view synthesis of frame 1</h4>
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="images/4-view-first-frame.m4v" type="video/mp4">
+            </video>
+
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">3D reconstruction</h4>
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="images/4-view-recon.m4v" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br> -->
+
+  <!-- monocular results -->
+  <!-- <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Results on monocular videos</h3>
+            <hr style="margin-top:0px">
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="images/monocular-1.m4v" type="video/mp4">
+            </video>
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="images/monocular-2.m4v" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br> -->
+
+  <!-- citing -->
+  <!-- <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{huang2021vs-net,
+  title={VS-Net: Voting with Segmentation for Visual Localization},
+  author={Huang, Zhaoyang and Zhou, Han and Li, Yijin and Yang, Bangbang and Xu, Yan and Zhou, Xiaowei and Bao, Hujun and Zhang, Guofeng and Li, Hongsheng},
+  booktitle={CVPR},
+  year={2021}
+}</code></pre>
+          <hr>
+      </div>
+    </div>
+  </div> -->
+
+  <footer class="text-center" style="margin-bottom:10px">
+      Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+  </footer>
+
+</body>
+</html>
