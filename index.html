@@ -1,6 +1,8 @@
 
 <!DOCTYPE html>
 <html>
+  <head><link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  </head>
 <title>Zhaoyang Huang</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +25,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Lato", sans-serif;
+    font-family: "Lato", sans-serif, monaco, monospace;
   }
 
   body,
@@ -34,6 +36,21 @@
     line-height: 1.8;
   }
 
+  .pub-title {
+    font-weight: bold;
+    color: #000000;
+  }
+  .pub-conference {
+    font-family: "Lato";
+  }
+  .pub-authors {
+    font-family: monospace;
+    font-style: italic;
+  }
+  .pub-highlight {
+    
+  }
+
   .w3-wide {
     letter-spacing: 12px;
     margin-right: -12px;
@@ -41,6 +58,10 @@
 
   .w3-hover-opacity {
     cursor: pointer;
+  }
+
+  .pub{
+    font-style: monaco;
   }
 
   /* Turn off parallax scrolling for tablets and phones */
@@ -162,7 +183,7 @@
       </div>
 
       <div class="w3-col m9 w3-padding-large">
-        <h3>Zhaoyang Huang</h3>
+        <h2 style="color:#000000;text-align: center">Zhaoyang Huang</h2>
         I am a Ph.D. student at CUHK, MMLab, advised by Prof. Hongsheng Li. Before that, I got my master degree and bachelor degree from Zhejiang University. I had a great research experience working in the ZJU-3DV group of State Key Lab of CAD&CG, Zhejiang University, advised by Prof. Guofeng Zhang and Prof. Xiaowei Zhou.
         I am interested in developing better feature representation for 3D vision tasks.
       </div>
@@ -170,17 +191,13 @@
 
     <!-- <p> -->
   <div class="w3-content w3-container w3-padding-12" id="portfolio">
-    <h3 class="w3-center">Experience</h3>
-      <br>
-      - Ph.D in Electronic Engineering at CUHK-SenseTime Joint Laboratory of The Chinese University of Hong Kong 
-      <br>
-      - Research intern at Sensetime, Hangzhou.
-      <br>
-      - M.Eng in Computer Science at State Key Lab of CAD & CG of Zhejiang University.
-      <br>
-      - Research intern at Siemens, Suzhou/Beijing.
-      <br>
-      - B.Eng. in Computer Science at Zhejiang University.
+    <h3 class="w3-center" style="color: #000000;">Experience</h3>
+      <li>Ph.D in Electronic Engineering at MMLab of The Chinese University of Hong Kong.</li>
+      <li>M.Eng in Computer Science at State Key Lab of CAD & CG of Zhejiang University.</li>
+      <li>B.Eng. in Computer Science at Zhejiang University.</li>
+      <li>Research intern at NVIDIA, Hong Kong.</li>
+      <li>Research intern at Sensetime, Hangzhou.</li>
+      <li>Research intern at Siemens, Suzhou/Beijing.</li>
     </div>
     <!-- </p> -->
 
@@ -206,18 +223,44 @@
 
   <!-- Publication and Projects 项目 -->
   <div class="w3-content w3-container w3-padding-12" id="portfolio">
-    <h3 class="w3-center">Publication</h3>
+    <h3 class="w3-center" style="color: #000000;">Publication</h3>
 
     <!-- Publication项 -->
+    <div class="w3-row-padding  w3-section">
+      <div class="w3-col m6 w3-center">
+        <img src="publication/flowformer/images/featured.png" style="width:85%" alt="flowformer-png">
+      </div>
+      <div class="w3-col m6 w3-">
+        <div class="pub-title">FlowFormer: A Transformer-based Architecture for Optical Flow</div>
+        arXiv 2022
+        <div class="pub-authors">
+          <b>Zhaoyang Huang</b>*, Xiaoyu Shi*, Chao Zhang, Qiang Wang, Kachun Cheung, Hongwei Qin, Jifeng Dai, Hongsheng Li
+        </div>
+        <br>
+        <a class="btn btn-primary btn-outline btn-sm" href="https://arxiv.org/" target="_blank"
+          rel="noopener">
+          Paper
+        </a>
+        <a class="btn btn-primary btn-outline btn-sm" href="https://drinkingcoder.github.io/publication/flowformer" target="_blank"
+          rel="noopener">
+          Project Page
+        </a>
+        <a class="btn btn-primary btn-outline btn-sm" href="https://github.com/drinkingcoder/">
+          Code
+        </a>
+      </div>
+    </div>
+    <br>
     <div class="w3-row-padding  w3-section">
       <div class="w3-col m6 w3-center">
         <img src="publication/life/images/featured.png" style="width:85%" alt="life-png">
       </div>
       <div class="w3-col m6 w3-">
-        <br>
-        <b>LIFE: Lighting Invariant Flow Estimation</b>. (arXiv, 2021)
-        <br>
-          <i><b>Zhaoyang Huang</b>*, Xiaokun Pan*, Runsen Xu, Yan Xu, Kachun Cheung, Guofeng Zhang, Hongsheng Li</i>(* denotes equal contributions)
+        <div class="pub-title">LIFE: Lighting Invariant Flow Estimation</div>
+        arXiv 2021
+        <div class="pub-authors">
+          <b>Zhaoyang Huang</b>*, Xiaokun Pan*, Runsen Xu, Yan Xu, Kachun Cheung, Guofeng Zhang, Hongsheng Li
+        </div>
         <br>
         <a class="btn btn-primary btn-outline btn-sm" href="https://arxiv.org/pdf/2104.03097.pdf" target="_blank"
           rel="noopener">
@@ -239,12 +282,12 @@
         <img src="publication/vs-net/images/featured.png" style="width:85%" alt="vs-png">
       </div>
       <div class="w3-col m6 w3-">
-        <br>
-        <b>VS-Net: Voting with Segmentation for Visual Localization</b>. (CVPR, 2021)
-        <br>
+        <div class="pub-title">VS-Net: Voting with Segmentation for Visual Localization
+        </div>CVPR 2021
+        <div class="pub-authors">
           <i><b>Zhaoyang Huang</b>*, Han Zhou*, Yijin Li, Bangbang Yang, Yan Xu,
-            Xiaowei Zhou Hujun Bao, Guofeng Zhang, Hongsheng Li</i>(* denotes equal contributions)
-        <br>
+            Xiaowei Zhou Hujun Bao, Guofeng Zhang, Hongsheng Li</i>
+        </div>
         <a class="btn btn-primary btn-outline btn-sm" href="https://arxiv.org/abs/2105.10886" target="_blank"
           rel="noopener">
           Paper
@@ -265,11 +308,11 @@
         <img src="publication/voxelo/featured.png" style="width:85%" alt="voxelo-png">
       </div>
       <div class="w3-col m6 w3-">
-        <br>
-        <b>SelfVoxeLO: Self-supervised LiDAR Odometry with Voxel-based Deep Neural Networks</b>. (CoRL, 2020)
-        <br>
+        <div class="pub-title">SelfVoxeLO: Self-supervised LiDAR Odometry with Voxel-based Deep Neural Networks</div>
+        CoRL 2020
+        <div class="pub-authors">
         <i>Yan Xu, <b>Zhaoyang Huang</b>, Kwan-Yee Lin, Xinge Zhu, Jianping Shi, Hujun Bao, Guofeng Zhang, Hongsheng Li</i>
-        <br>
+        </div>
         <a class="btn btn-primary btn-outline btn-sm" href="https://arxiv.org/abs/2010.09343" target="_blank"
           rel="noopener">
           Paper
@@ -283,11 +326,13 @@
         <img src="publication/niid/images/featured.jpg" style="width:85%" alt="niid-png">
       </div>
       <div class="w3-col m6 w3-">
-        <br>
-        <b>NIID-Net: Adapting Surface Normal Knowledge for Intrinsic Image
-          Decomposition in Indoor Scenes</b>. (TVCG, 2020)
-        <br>
-        <i>Jundan Luo*, <b>Zhaoyang Huang</b>*, Yijin Li, Xiaowei Zhou, Guofeng Zhang, Hujun Bao</i> (* denotes equal contributions)
+        <div class="pub-title">NIID-Net: Adapting Surface Normal Knowledge for Intrinsic Image
+          Decomposition in Indoor Scenes
+          </div>
+          TVCG 2020
+          <div class="pub-authors">
+        <i>Jundan Luo*, <b>Zhaoyang Huang</b>*, Yijin Li, Xiaowei Zhou, Guofeng Zhang, Hujun Bao</i> 
+        </div>
         <br>
         <a class="btn btn-primary btn-outline btn-sm" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9199573" target="_blank"
           rel="noopener">
@@ -309,10 +354,11 @@
         <img src="publication/pgd/images/PGD.png" style="width:85%" alt="pgd-png">
       </div>
       <div class="w3-col m6 w3-">
-        <b>Prior Guided Dropout for Robust Visual Localization in Dynamic Environments</b>. (ICCV, 2019)
-        <br>
+        <div class="pub-title">Prior Guided Dropout for Robust Visual Localization in Dynamic Environments</div>
+        ICCV 2019
+        <div class="pub-authors">
         <i><b>Zhaoyang Huang</b>, Yan Xu, Jianping Shi, Xiaowei Zhou, Hujun Bao, Guofeng Zhang</i>
-        <br>
+        </div>
         <a class="btn btn-primary btn-outline btn-sm" href="http://openaccess.thecvf.com/content_ICCV_2019/html/Huang_Prior_Guided_Dropout_for_Robust_Visual_Localization_in_Dynamic_Environments_ICCV_2019_paper.html" target="_blank"
           rel="noopener">
           Paper
@@ -330,7 +376,7 @@
 
   <!-- Footer -->
   <footer class="w3-center w3-white w3-padding-16" id="contact">
-    <p> last update 4/1/2021 </p>
+    <p> last update 17/3/2022 </p>
   </footer>
 
   <script>
