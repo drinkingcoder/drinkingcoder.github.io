@@ -25,7 +25,11 @@
   h4,
   h5,
   h6 {
-    font-family: "Lato", sans-serif, monaco, monospace;
+    font-family: "Lato", sans-serif;
+  }
+
+  li, p {
+    font-family: monaco;
   }
 
   body,
@@ -37,6 +41,7 @@
   }
 
   .pub-title {
+    font-family: monaco;
     font-weight: bold;
     color: #000000;
   }
@@ -44,11 +49,12 @@
     font-family: "Lato";
   }
   .pub-authors {
-    font-family: monospace;
+    font-family: monaco;
     font-style: italic;
   }
   .pub-highlight {
-    
+    color: #e83015;
+    font-family: monaco;
   }
 
   .w3-wide {
@@ -184,8 +190,11 @@
 
       <div class="w3-col m9 w3-padding-large">
         <h2 style="color:#000000;text-align: center">Zhaoyang Huang</h2>
-        I am a Ph.D. student at CUHK, MMLab, advised by Prof. Hongsheng Li. Before that, I got my master degree and bachelor degree from Zhejiang University. I had a great research experience working in the ZJU-3DV group of State Key Lab of CAD&CG, Zhejiang University, advised by Prof. Guofeng Zhang and Prof. Xiaowei Zhou.
-        I am interested in developing better feature representation for 3D vision tasks.
+        <div style="text-align: center;">黄昭阳</div>
+        <p>
+        I am a Ph.D. student at CUHK, MMLab, advised by  <a href="https://www.ee.cuhk.edu.hk/~hsli/">Prof. Hongsheng Li</a>. Before that, I got my master degree and bachelor degree from Zhejiang University. I had a great research experience working in the ZJU-3DV group of State Key Lab of CAD&CG, Zhejiang University, advised by <a href="http://www.cad.zju.edu.cn/home/gfzhang/">Prof. Guofeng Zhang</a>  and <a href="https://xzhou.me/">Prof. Xiaowei Zhou</a>.
+        I am interested in correspondence learning and NeRFs.
+      </p>
       </div>
     </div>
 
@@ -233,6 +242,7 @@
       <div class="w3-col m6 w3-">
         <div class="pub-title">FlowFormer: A Transformer-based Architecture for Optical Flow</div>
         arXiv 2022
+        <div class="pub-highlight">Ranks 1st on Sintel Optical Flow benchmark on Mar. 17th, 2022 </div>
         <div class="pub-authors">
           <b>Zhaoyang Huang</b>*, Xiaoyu Shi*, Chao Zhang, Qiang Wang, Kachun Cheung, Hongwei Qin, Jifeng Dai, Hongsheng Li
         </div>
