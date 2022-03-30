@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180733097-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180733097-1');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FlowFormer: A Transformer Architecture for Optical Flow</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  </head>
+
+  <style>
+  .section-title {
+    font-family: "Lato"
+  }
+  .authors {
+    font-family: "Lato";
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    font-family: "Lato";
+  }
+  </style>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 style="font-family: Lato;">FlowFormer: A Transformer-based Architecture for Optical Flow</h2->
+            <h4 style="color:#5a6268;">arXiv 2022</h4>
+            <hr>
+            <h6> <a href="https://drinkingcoder.github.io/" target="_blank">Zhaoyang Huang</a><sup>1, 3*</sup>, 
+                Xiaoyu Shi<sup>1, 3*</sup>, Chao Zhang<sup>2</sup>, Qiang Wang<sup>2</sup>, Ka Chun Cheung<sup>3</sup>, Hongwei Qin<sup>4</sup>, Jifeng Dai<sup>4</sup>
+                <a href="https://www.ee.cuhk.edu.hk/~hsli/" target="_blank">Hongsheng Li</a><sup>1</sup></h6>
+            <p>
+                <sup>1</sup>CUHK-SenseTime Joint Laboratory, The Chinese University of Hong Kong &nbsp;&nbsp; <br>
+                <sup>2</sup>Samsung Telecommunication Research Institute, Beijing, China &nbsp;&nbsp;  <br>
+                <sup>3</sup>NVIDIA AI Technology Center, NVIDIA &nbsp;&nbsp;  <br>
+                <sup>4</sup> SenseTime Research &nbsp;&nbsp;  <br>
+                <sup>*</sup> denotes equal contributions
+                </p>
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/" role="button"  target="_blank">
+                    <i class="fa fa-file"></i> Paper</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/" role="button"  target="_blank">
+                    <i class="fa fa-github-alt"></i> Code</a> </p>
+              </div>
+              <!-- <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://zjueducn-my.sharepoint.com/:f:/g/personal/pengsida_zju_edu_cn/Eo9zn4x_xcZKmYHZNjzel7gBdWf_d4m-pISHhPWB-GZBYw?e=Hf4mz7" role="button">
+                    <i class="fa fa-database"></i> Data</a> </p>
+              </div> -->
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+          <p class="text-justify">We introduce Optical Flow TransFormer (FlowFormer), a transformer-based neural network architecture for learning optical flow.
+            FlowFormer tokenizes the 4D cost volume built from an image pair, encodes the cost tokens into a cost memory with alternate-group transformer (AGT) layers in a novel latent space, and decodes the cost memory via a recurrent transformer decoder with dynamic positional cost queries.
+            On the Sintel benchmark clean pass, FlowFormer achieves 1.178 average end-ponit-error (AEPE), a <a style="color: #e83015;">15.1%</a> error reduction from the best published result (1.388).
+            Besides, FlowFormer also achieves strong generalization performance.
+            Without being trained on Sintel, FlowFormer achieves 1.00 AEPE on the Sintel training set clean pass, outperforming the best published result (1.29) by <a style="color: #e83015;">22.4%</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Video Demo for FlowFormer</h3>
+            <!-- <iframe width="560" height="315" src="https://youtu.be/7uySpKoz4Ng" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7uySpKoz4Ng" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             <p class="text-justify">
+              We provide a video comparing results of our proposed FlowFormer with those of GMA on the Sintel training set, together with flow prediction on two video clips from the Internet.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Method</h3>
+            <hr style="margin-top:0px">
+                <img class="img-fluid" src="images/arc.png" alt="comparison" width="80%">
+          <p class="text-justify" style="font-family: Lato; font-size: x-large; font-weight: 500;">Motivation</p>
+             <p class="text-justify">
+              Recently, transformers have attracted much attention for their ability of modeling long-range relations, which can benefit optical flow estimation. <a style="color: #e83015;">Can we enjoy both advantages of transformers and the cost volume from the previous milestone architectures?</a> Such a question calls for designing novel transformer architectures for optical flow estimation that can effectively aggregate information from the cost volume. In this paper, we introduce the novel optical Flow TransFormer~(FlowFormer) to address this challenging problem.
+          </p>
+          <p class="text-justify" style="font-family: Lato; font-size: x-large; font-weight: 500;">Architecture</p>
+             <p class="text-justify">
+              FlowFormer adopts an encoder-decoder architecture for cost volume encoding and decoding. After building a 4D cost volume, FlowFormer consists of two main components: 1) a cost volume encoder that embeds the 4D cost volume into a latent cost space and fully encodes the cost information in such a space, and 2) a recurrent cost decoder that estimates ﬂows from the encoded latent cost features. Compared with previous works, the main characteristic of our FlowFormer is to adapt the transformer architectures to effectively process cost volumes, which are compact yet rich representations widely explored in optical flow estimation communities, for estimating accurate optical flows.
+          </p>
+          <p class="text-justify">
+              Our contributions can be summarized as threefold: 
+
+              <li style="text-align: left;font-family: Lato;">We propose a novel transformer-based neural network architecture, FlowFormer, for optical flow estimation, which achieves state-of-the-art flow estimation performance.</li> 
+              <li style="text-align: left;font-family: Lato;">We design a novel cost volume encoder, effectively aggregating cost information into compact latent cost tokens.</li>
+              <li style="text-align: left;font-family: Lato;">We propose a recurrent cost decoder that recurrently decodes cost features with dynamic positional cost queries to iteratively refine the estimated optical flows.
+              </li>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Compared with Other Methods</h3>
+            <hr style="margin-top:0px">
+                <img class="img-fluid" src="images/comparison.png" alt="comparison" width="80%">
+          <p>* denotes that the methods use the warm-start strategy. </p>
+          <p class="text-justify" style="font-family: Lato; font-size: x-large; font-weight: 500;">Generalization Performance</p>
+             <p class="text-justify">
+              We train FlowFormer on the FlyingChairs and FlyingThings (C+T), and evaluate it on the training set of Sintel and KITTI-2015. This settings evaluates the generalization performance of optical flow models.
+              FlowFormer <a style="color: #e83015;">ranks 1st</a> among all compared methods on both benchmarks.
+              FlowFormer achieves 1.00 and 2.45 on the clean and final pass of Sintel.
+              On the KITTI-2015 training set, FlowFormer achieves 4.09 F1-epe and 14.72 F1-all.
+              Compared to GMA, FlowFormer reduces <a style="color: #e83015;">23% and 13%</a> errors on Sintel clean and KITTI-2015, which shows its extraordinary generalization performance.
+          </p>
+          <p class="text-justify" style="font-family: Lato; font-size: x-large; font-weight: 500;">Sintel Benchmark</p>
+             <p class="text-justify">
+            FlowFormer achieves 1.18 and 2.36 on the Sintel clean and final, <a style="color: #e83015;">15.1% and 4.4%</a> lower error compared to GMA*, which both <a style="color: #e83015;">ranks 1st</a> on the Sintel benchmark.
+            It is noteworthy that RAFT* and GMA* use the warm-start strategy that requires image sequences while FlowFormer does not.
+            Compared with GMA, which also does not use the warm-start, FlowFormer obtains <a style="color: #e83015;">15.7% and 18.1%</a> error reduction.
+            From RAFT v.s. RAFT* and GMA v.s. GMA*, we can see significant error reduction from the warm-start strategy especially on the final pass.
+            RAFT trained on the autoflow dataset~(A+S+K+H) significantly outperforms RAFT trained on the C+T+S+K+H on final pass because autoflow provides training image pairs that are more challenging.
+            We believe training FlowFormer with autoflow can achieve better accuracy but it is not released yet.
+          </p>
+          <p class="text-justify" style="font-family: Lato; font-size: x-large; font-weight: 500;">KITTI-2015 Benchmark</p>
+             <p class="text-justify">
+              FlowFormer achieves 4.87, ranking 2nd on the KITTI-2015 benchmark.
+              S-Flow obtains slightly smaller error than FlowFormer on KITTI (-4.7%), which, however, is significantly worse on Sintel (27.1% and 13.1% larger error on clean and final pass).
+              S-Flow finds corresponding points by computing the coordinate expectation weighted by refined cost maps.
+              Images in the KITTI dataset are captured in urban traffic scenes, which contains objects that are mostly rigid.
+              Flows on rigid objects are rather simple, which is easier for cost-based coordinate expectation, but the assumption can be easily violated in non-rigid scenarios such as Sintel.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Qualitative Results</h3>
+            <hr style="margin-top:0px">
+                <img class="img-fluid" src="images/qualitative_results.png" alt="comparison" width="80%">
+          <p class="text-justify" style="font-family: Lato; font-size: x-large; font-weight: 500;">Qualitative Comparison</p>
+             <p class="text-justify">
+              We visualize flows that estimated by our FlowFormer and GMA of three examples in the figure to qualitatively show how FlowFormer outperforms GMA.
+              As transformers can encode the cost information at a large perceptive field, FlowFormer can distinguish overlapping objects via contextual information and thus reduce the leakage of flows over boundaries.
+              Compared with GMA, the flows that are estimatd by FlowFormer on boundaries of the bamboo and the human body are more precise and clear.
+              Besides, FlowFormer can also recover motion details that are ignored by GMA, such as the hair and the holes on the box.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- citing -->
+  <!-- <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{huang2021vs-net,
+  title={VS-Net: Voting with Segmentation for Visual Localization},
+  author={Huang, Zhaoyang and Zhou, Han and Li, Yijin and Yang, Bangbang and Xu, Yan and Zhou, Xiaowei and Bao, Hujun and Zhang, Guofeng and Li, Hongsheng},
+  booktitle={CVPR},
+  year={2021}
+}</code></pre>
+          <hr>
+      </div>
+    </div>
+  </div> -->
+
+  <footer class="text-center" style="margin-bottom:10px">
+      Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+  </footer>
+
+</body>
+</html>
