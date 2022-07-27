@@ -87,9 +87,9 @@
             <hr style="margin-top:0px">
           <p class="text-justify">We introduce Optical Flow TransFormer (FlowFormer), a transformer-based neural network architecture for learning optical flow.
             FlowFormer tokenizes the 4D cost volume built from an image pair, encodes the cost tokens into a cost memory with alternate-group transformer (AGT) layers in a novel latent space, and decodes the cost memory via a recurrent transformer decoder with dynamic positional cost queries.
-            On the Sintel benchmark clean pass, FlowFormer achieves 1.178 average end-ponit-error (AEPE), a <a style="color: #e83015;">15.1%</a> error reduction from the best published result (1.388).
+            On the Sintel benchmark, FlowFormer achieves 1.144 and 2.183 average end-ponit-error (AEPE) on the clean and final pass, a <a style="color: #e83015;">17.6%</a> and <a style="color: #e83015;">11.6%</a> error reduction from the best published result (1.388 and 2.47).
             Besides, FlowFormer also achieves strong generalization performance.
-            Without being trained on Sintel, FlowFormer achieves 1.00 AEPE on the Sintel training set clean pass, outperforming the best published result (1.29) by <a style="color: #e83015;">22.4%</a>.</p>
+            Without being trained on Sintel, FlowFormer achieves 0.95 AEPE on the Sintel training set clean pass, outperforming the best published result (1.29) by <a style="color: #e83015;">26.9%</a>.</p>
         </div>
       </div>
     </div>
@@ -153,23 +153,23 @@
              <p class="text-justify">
               We train FlowFormer on the FlyingChairs and FlyingThings (C+T), and evaluate it on the training set of Sintel and KITTI-2015. This settings evaluates the generalization performance of optical flow models.
               FlowFormer <a style="color: #e83015;">ranks 1st</a> among all compared methods on both benchmarks.
-              FlowFormer achieves 1.00 and 2.45 on the clean and final pass of Sintel.
+              FlowFormer achieves 0.95 and 2.35 on the clean and final pass of Sintel.
               On the KITTI-2015 training set, FlowFormer achieves 4.09 F1-epe and 14.72 F1-all.
-              Compared to GMA, FlowFormer reduces <a style="color: #e83015;">23% and 13%</a> errors on Sintel clean and KITTI-2015, which shows its extraordinary generalization performance.
+              Compared to GMA, FlowFormer reduces <a style="color: #e83015;">26.9% and 14.2%</a> errors on Sintel clean and final, and 13.9% errors on KITTI-2015 F1-all, which shows its extraordinary generalization performance.
           </p>
           <p class="text-justify" style="font-family: Lato; font-size: x-large; font-weight: 500;">Sintel Benchmark</p>
              <p class="text-justify">
-            FlowFormer achieves 1.18 and 2.36 on the Sintel clean and final, <a style="color: #e83015;">15.1% and 4.4%</a> lower error compared to GMA*, which both <a style="color: #e83015;">ranks 1st</a> on the Sintel benchmark.
+            FlowFormer achieves 1.14 and 2.18 on the Sintel clean and final, <a style="color: #e83015;">17.6% and 11.6%</a> lower error compared to GMA*, which both <a style="color: #e83015;">ranks 1st</a> on the Sintel benchmark.
             It is noteworthy that RAFT* and GMA* use the warm-start strategy that requires image sequences while FlowFormer does not.
-            Compared with GMA, which also does not use the warm-start, FlowFormer obtains <a style="color: #e83015;">15.7% and 18.1%</a> error reduction.
+            Compared with GMA, which also does not use the warm-start, FlowFormer obtains <a style="color: #e83015;">18.6% and 24.3%</a> error reduction.
             From RAFT v.s. RAFT* and GMA v.s. GMA*, we can see significant error reduction from the warm-start strategy especially on the final pass.
             RAFT trained on the autoflow dataset~(A+S+K+H) significantly outperforms RAFT trained on the C+T+S+K+H on final pass because autoflow provides training image pairs that are more challenging.
             We believe training FlowFormer with autoflow can achieve better accuracy but it is not released yet.
           </p>
           <p class="text-justify" style="font-family: Lato; font-size: x-large; font-weight: 500;">KITTI-2015 Benchmark</p>
              <p class="text-justify">
-              FlowFormer achieves 4.87, ranking 2nd on the KITTI-2015 benchmark.
-              S-Flow obtains slightly smaller error than FlowFormer on KITTI (-4.7%), which, however, is significantly worse on Sintel (27.1% and 13.1% larger error on clean and final pass).
+              FlowFormer achieves 4.68, ranking 2nd on the KITTI-2015 benchmark.
+              S-Flow obtains slightly smaller error than FlowFormer on KITTI (-0.85%), which, however, is significantly worse on Sintel (<a style="color: #e83015;">31.6%</a> and <a style="color: #e83015;">22.5%</a> larger error on clean and final pass).
               S-Flow finds corresponding points by computing the coordinate expectation weighted by refined cost maps.
               Images in the KITTI dataset are captured in urban traffic scenes, which contains objects that are mostly rigid.
               Flows on rigid objects are rather simple, which is easier for cost-based coordinate expectation, but the assumption can be easily violated in non-rigid scenarios such as Sintel.
