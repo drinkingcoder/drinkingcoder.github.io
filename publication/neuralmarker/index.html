@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180733097-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180733097-1');
+</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LIFE: Lighting Invariant Flow Estimation</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  </head>
+
+  <style>
+  .section-title {
+    font-family: "Lato"
+  }
+  .authors {
+    font-family: "Lato";
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    font-family: "Lato";
+  }
+  </style>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2>NeuralMarker: A Framework for Learning General Marker Correspondence</h2>
+            <h4 style="color:#5a6268;">ACM Transactions on Graphics (SIGGRAPH Asia 2022)</h4>
+            <hr>
+            <h6> <a href="https://drinkingcoder.github.io/" target="_blank">Zhaoyang Huang</a><sup>1, 3*</sup>, 
+                Xiaokun Pan<sup>2*</sup>, Weihong Pan<sup>2</sup>, <a href="https://wkbian.github.io/" target="_blank">Weikang Bian</a><sup>1</sup>, <a href="https://decayale.github.io/" target="_blank">Yan Xu</a><sup>1</sup>, 
+                <br>
+                Ka Chun Cheung<sup>3</sup>,
+                <a href="http://www.cad.zju.edu.cn/home/gfzhang/" target="_blank">Guofeng Zhang</a><sup>2</sup>,
+                <a href="https://www.ee.cuhk.edu.hk/~hsli/" target="_blank">Hongsheng Li</a><sup>1</sup></h6>
+            <p>
+                <sup>1</sup>The Chinese University of Hong Kong &nbsp;&nbsp; <br>
+                <sup>2</sup>State Key Lab of CAD & CG, Zhejiang University &nbsp;&nbsp;  <br>
+                <sup>3</sup>NVIDIA AI Technology Center, NVIDIA &nbsp;&nbsp;  <br>
+                <sup>*</sup> denotes equal contributions
+                </p>
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2104.03097" role="button"  target="_blank">
+                    <i class="fa fa-file"></i> Paper (comming soon)</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/drinkingcoder/LIFE" role="button"  target="_blank">
+                    <i class="fa fa-github-alt"></i> Code (comming soon)</a> </p>
+              </div>
+              <!-- <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://zjueducn-my.sharepoint.com/:f:/g/personal/pengsida_zju_edu_cn/Eo9zn4x_xcZKmYHZNjzel7gBdWf_d4m-pISHhPWB-GZBYw?e=Hf4mz7" role="button">
+                    <i class="fa fa-database"></i> Data</a> </p>
+              </div> -->
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+            <!-- <video width="70%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted=""> -->
+                  <!-- <source src="images/monocular.m4v" type="video/mp4"> -->
+              <!-- </video> -->
+              <!-- <br><br> -->
+          <p class="text-justify">We tackle the problem of estimating correspondences from a general marker, such as a movie poster, to an image that captures such a marker.
+            Conventionally,
+            this problem is addressed by fitting a homography model based on sparse feature matching.
+            However, they are only able to handle plane-like markers and the sparse features does not sufficiently utilize appearance information.
+            In this paper, we propose a novel framework NeuralMarker, training a neural network estimating dense marker correspondences under various challenging conditions, such as marker deformation, harsh lighting, etc.
+            Deep learning has presented excellent performance in correspondence learning once provided sufficient training data.
+            However, annotating pixel-wise dense correspondence for training marker correspondence is too expensive.
+            We observe that the challenges of marker correspondence estimation come from two individual aspects: geometry variation and appearance variation.
+            We therefore design two components addressing these two challenges in NeuralMarker.
+            First, we create a synthetic dataset FlyingMarkers containing marker-image pairs with ground truth dense correspondences. 
+            By training with FlyingMarkers, the neural network is encouraged to capture various marker motion.
+            Second, 
+            we propose the novel Symmetric Epipolar Distance (SED) loss, which enables learning dense correspondence from posed images. 
+            Learning with the SED loss and the cross-lighting posed images collected by Structure-from-Motion (SfM), NeuralMarker is remarkably robust in harsh lighting environments  and avoids the synthetic image bias.
+            Besides, we also propose a novel marker correspondence evaluation method circumstancing annotations on real marker-image pairs and create a new benchmark.
+            We show that NeuralMarker significantly outperforms previous methods and enables new interesting applications, including Augmented Reality (AR) and video editing.</p>
+          <img class="img-fluid" src="images/teaser.png" alt="teasor">
+          <p class="text-justify" style="font-weight: bold;">
+            (a) The marker correspondence predicted by our NeuralMarker for an offhand marker. 
+  (b) We can easily embed advertisement into movies and TV series via NeuralMarker.
+  (c) We can edit a frame in a video clip and propagate the editing effects to the whole video clip.
+  (d) The marker-based Augmented Reality~(AR). Please refer to the supplemented video for more results.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Applications</h3>
+            <hr style="margin-top:0px">
+            <!-- <p class="text-justify"> We show that NeuralMarker enables a series of applications.</p> -->
+            <br>
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Augmented Reality with Deformed Markers</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/movie.mp4" type="video/mp4">
+            </video>
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Augmented Reality with Harsh Lighting and Fast Motion</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/nerf.mp4" type="video/mp4">
+            </video>
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Fast Video Editing</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/bilibili.mp4" type="video/mp4">
+            </video>
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Lighting-Preserved Image Editing with <a href="https://zju3dv.github.io/niid/"> NIID-Net</a></h4>
+            <img class="img-fluid" width="65%" src="images/realistic.png" alt="warping Comparison">
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Qualitative Comparison</h3>
+            <hr style="margin-top:0px">
+            <!-- <p class="text-justify"> We show that NeuralMarker enables a series of applications.</p> -->
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980"></h4>
+            <img class="img-fluid" width="85%" src="images/corr.png" alt="warping Comparison">
+            <!-- <br> -->
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Motion Blur</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/motionblur.mp4" type="video/mp4">
+            </video>
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Marker Deformation</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/deformation.mp4" type="video/mp4">
+            </video>
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Harsh Lighting</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/lighting.mp4" type="video/mp4">
+            </video>
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Extreme Viewpoint</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/viewpoint.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center" style="margin-bottom:10px">
+      Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+  </footer>
+
+</body>
+</html>
