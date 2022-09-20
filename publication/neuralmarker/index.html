@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LIFE: Lighting Invariant Flow Estimation</title>
+    <title>NeuralMarker: A Framework for Learning General Marker Correspondence</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
@@ -48,8 +48,8 @@
                 <a href="http://www.cad.zju.edu.cn/home/gfzhang/" target="_blank">Guofeng Zhang</a><sup>2</sup>,
                 <a href="https://www.ee.cuhk.edu.hk/~hsli/" target="_blank">Hongsheng Li</a><sup>1</sup></h6>
             <p>
-                <sup>1</sup>The Chinese University of Hong Kong &nbsp;&nbsp; <br>
-                <sup>2</sup>State Key Lab of CAD & CG, Zhejiang University &nbsp;&nbsp;  <br>
+                <sup>1</sup>MMLab, The Chinese University of Hong Kong &nbsp;&nbsp;
+                <sup>2</sup>State Key Lab of CAD & CG, Zhejiang University &nbsp;&nbsp;  
                 <sup>3</sup>NVIDIA AI Technology Center, NVIDIA &nbsp;&nbsp;  <br>
                 <sup>*</sup> denotes equal contributions
                 </p>
@@ -59,8 +59,8 @@
                     <i class="fa fa-file"></i> Paper (comming soon)</a> </p>
               </div>
               <div class="column">
-                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/drinkingcoder/LIFE" role="button"  target="_blank">
-                    <i class="fa fa-github-alt"></i> Code (comming soon)</a> </p>
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/drinkingcoder/NeuralMarker" role="button"  target="_blank">
+                    <i class="fa fa-github-alt"></i>Code</a> </p>
               </div>
               <!-- <div class="column">
                   <p class="mb-5"><a class="btn btn-large btn-light" href="https://zjueducn-my.sharepoint.com/:f:/g/personal/pengsida_zju_edu_cn/Eo9zn4x_xcZKmYHZNjzel7gBdWf_d4m-pISHhPWB-GZBYw?e=Hf4mz7" role="button">
@@ -107,7 +107,7 @@
             (a) The marker correspondence predicted by our NeuralMarker for an offhand marker. 
   (b) We can easily embed advertisement into movies and TV series via NeuralMarker.
   (c) We can edit a frame in a video clip and propagate the editing effects to the whole video clip.
-  (d) The marker-based Augmented Reality~(AR). Please refer to the supplemented video for more results.
+  (d) The marker-based Augmented Reality (AR).
           </p>
         </div>
       </div>
@@ -123,18 +123,27 @@
             <h3>Applications</h3>
             <hr style="margin-top:0px">
             <!-- <p class="text-justify"> We show that NeuralMarker enables a series of applications.</p> -->
-            <br>
+            <!-- <br> -->
             <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Augmented Reality with Deformed Markers</h4>
+          <p class="text-justify" style="font-weight: bold;">
+            <!-- . -->
+          </p>
             <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
                   <source src="images/movie.mp4" type="video/mp4">
-            </video>
-            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Augmented Reality with Harsh Lighting and Fast Motion</h4>
-            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                  <source src="images/nerf.mp4" type="video/mp4">
             </video>
             <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Fast Video Editing</h4>
             <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
                   <source src="images/bilibili.mp4" type="video/mp4">
+            </video>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/catdemo1.mp4" type="video/mp4">
+            </video>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/elondemo.mp4" type="video/mp4">
+            </video>
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Augmented Reality with Harsh Lighting and Fast Motion</h4>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/nerf.mp4" type="video/mp4">
             </video>
             <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Lighting-Preserved Image Editing with <a href="https://zju3dv.github.io/niid/"> NIID-Net</a></h4>
             <img class="img-fluid" width="65%" src="images/realistic.png" alt="warping Comparison">
